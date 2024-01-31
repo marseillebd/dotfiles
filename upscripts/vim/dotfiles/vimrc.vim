@@ -22,6 +22,14 @@ set timeout timeoutlen=200
 " write swap file this fast (milliseconds)
 set updatetime=500
 
+"""""" autocomplete
+
+" show possible completions above the command line
+set wildmenu
+" use bash-like completion: first tab selects longest, second shows a list
+" I _do not_ use `full`, because that screws with my muscle memory so bad
+set wildmode=longest,list
+
 """""" search
 
 " Incremental search
@@ -74,6 +82,10 @@ set t_Co=256
 " This way, we can swap in new behavior for different filetypes
 " (e.g. Makefiles need tab-indentation, _not_ space-indentation).
 filetype plugin on
+
+"""""" command execution
+
+" TODO
 
 """""""""""""""""""""""""
 """""" language support

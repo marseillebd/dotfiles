@@ -11,6 +11,11 @@ Once that edit is made, run it with the following, and try to use the upscript.
 upup.sh profiles/testing && docker build --tag tmp . && docker run --rm -it tmp
 ```
 
+Here's a nice way to run specific setup scripts:
+```
+./upup.sh <(echo somePkg)
+```
+
 # Upscripts
 
 Upscripts are stored under the `upscripts/` directory.
@@ -34,23 +39,24 @@ It also makes for a good place to put other information, such as documentation.
   - [ ] check that every upscript has appropriate sections
   - [ ] check that the upscripts pass shellcheck
   - [ ] script to extract dependencies from the section
-- [x] script (nushell) that combines several upscripts into a single upscript
 
 # How does it work?
 
 There's the `upup.sh` script, which combines scripts from a profile.
-TODO: I think it'd be just as easy (if not better) to jsut have upup interpret the profile rather than compile it.
-The profile just lists upscripts of the form `<name>-<method>`, and reference `upscripts/<name>/<name>-<method>.sh`.
-All upscripts should run under `sh` (not `bash` or some other shell).
-The combined script will go through each one in order and
-- run it's upscript
-- run its `config.sh`
-- run its `activate.sh`
-All that happens in a subshell so the variables don't leak (between scripts or to the user's shell).
-The one exception is the `activate.sh` scripts, whose actions are visible to later scripts,
-and will also be run in the top-level shell at the end of installation...? FIXME or does it? I prolly need to go back to a separate activate script.
+It first defines a few variables and utility functions that can be used in the scripts it invokes:
+- `UPUP_BINDIR`: for executables (scripts and binaries) which should go in the `PATH`, is `${HOME}/.local/bin`
+- `UPUP_CONFIGDIR`: for configuration files, is `${XDG_CONFIG_HOME:-${HOME}/.config}`
+- `UPUP_BUILDDIR`: for intermediate files like source code (though they may stick around), is `${HOME}/.local/.build`
+- `UPUP_ln`: like `ln`, but sets flags for backups and whatnot
+- `UPUP_sudo`: tries to install via the system's package manager
+It then scans the lines of a "profile" file, which just lists upscripts you want installed.
 
-There's a special `uputils` upscript which defines some useful functions and variables.
-It is recommended to define a function here rather than try to template install scripts.
-All definitions in `uputils/activate.sh` wills tart with `UPUP_`.
-There's one upscript, `sh` which should likely run before `uputils`, since `sh` sets xdg base dir variables that `uputils` then uses.
+First it runs thouse matching `<name>(-<method>)?` by:
+- running `upscripts/<name>/<name>-<method>.sh`
+- running `upscripts/<name>/config.sh`, if it exists
+- running `upscripts/<name>/activate.sh`, if it exists
+All upscripts should run under `sh` (not `bash` or some other shell), because they are actually sourced.
+Only `activate.sh` is not sourced in a sub-shell, so any variables defined in the install/config scripts are undefiend once they complete.
+
+Then, any scripts with a slash in their name `<name>/<subname>` are treated as integrations.
+They are run via the same method, except the scripts are found under the `upscripts/<name>/integrations/<subname>/` directory.
