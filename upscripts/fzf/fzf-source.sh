@@ -18,4 +18,3 @@ cd fzf
 mv ./bin/fzf "$UPUP_BINDIR"
 mkdir -p "${UPUP_CONFIGDIR}/fzf"
 cp shell/* "$UPUP_CONFIGDIR/fzf"
-

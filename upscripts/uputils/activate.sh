@@ -1,9 +1,8 @@
-#!/bin/sh
-set -e
+# shellcheck shell=sh
 
-UPUP_BINDIR="${HOME}/.local/bin"
-UPUP_CONFIGDIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
-UPUP_BUILDDIR="${HOME}/.local/.build"
+export UPUP_BINDIR="${HOME}/.local/bin"
+export UPUP_CONFIGDIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export UPUP_BUILDDIR="${HOME}/.local/.build"
 
 # use the system package manager to install
 # WARNING this assumes the package name is consistent across different package managers

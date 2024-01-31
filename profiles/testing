@@ -1,4 +1,11 @@
-sh
-uputils
+profile
+shell
+bash-assume
+tree-sudo
+tree/shell
+wget-sudo
+less-sudo
 git-sudo
-fzf-source
+vim-sudo
+vimSurround
+vimAirline
