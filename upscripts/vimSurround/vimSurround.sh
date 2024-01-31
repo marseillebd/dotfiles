@@ -24,5 +24,5 @@ intodir="$HOME/.vim/pack/surround/start/repeat"
 if [ ! -d "$intodir" ]; then
   mkdir -p "$intodir"
   git clone --depth=1 https://github.com/tpope/vim-repeat "$intodir"
-  " no docs for vim-repeat, so no helptags command
+  # no docs for vim-repeat, so no helptags command
 fi

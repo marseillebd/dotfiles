@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
   echo >&2 "usage: $0 <filepath>"
   exit 1
 fi
-profile="$1"
+profile="$(cat "$1")"
 
 # TODO ensure all dependencies are available, and in the right order
 
@@ -17,6 +17,10 @@ profile="$1"
 export UPUP_BINDIR="${HOME}/.local/bin"
 export UPUP_CONFIGDIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export UPUP_BUILDDIR="${HOME}/.local/.build"
+
+mkdir -p "$UPUP_BINDIR"
+mkdir -p "$UPUP_CONFIGDIR"
+mkdir -p "$UPUP_BUILDDIR"
 
 # use the system package manager to install
 # WARNING this assumes the package name is consistent across different package managers
@@ -41,10 +45,11 @@ UPUP_ln() (
   if [ -d "$dst" ]; then
     dst="${dst%/}/$(basename "$src")"
   fi
-  if [ "$(realpath "$src")" = "$(realpath "$dst")" ]; then
+  if [ -f "$dst" ] && [ "$(realpath "$src")" = "$(realpath "$dst")" ]; then
     echo >&2 "'$dst' == '$src'"
   else
-    ln --backup=numbered -sv "$1" "$2"
+    mkdir -p "$(dirname "$dst")"
+    ln --backup=numbered -sv "$src" "$dst"
   fi
 )
 
@@ -54,7 +59,7 @@ UPUP_ln() (
 
 (
   # shellcheck disable=SC2002
-  cat "$profile" | while read -r req; do
+  echo "$profile" | while read -r req; do
     case "$req" in */*) continue ;; esac
     short="${req%%-*}"
     (
@@ -91,7 +96,7 @@ UPUP_ln() (
   done
 
   # shellcheck disable=SC2002
-  cat "$profile" | while read -r req; do
+  echo "$profile" | while read -r req; do
     case "$req" in
       */*)
         plug="${req%%/*}"
@@ -126,7 +131,7 @@ fi
 #######################################################
 
 # shellcheck disable=SC2002
-cat "$profile" | while read -r req; do
+echo "$profile" | while read -r req; do
   # TODO activate integrations differently
   short="${req%%-*}"
   if [ -f "upscripts/$short/activate.sh" ]; then
