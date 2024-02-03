@@ -197,6 +197,11 @@ highlight CursorLine cterm=NONE ctermbg=black
 " Y for yank-to-end; matching C (change-to-end) and D (delete-to-end)
 nnoremap Y y$
 
+"""""" visual line navigation
+
+nnoremap j gj
+nnoremap k gk
+
 """""" fast escape
 
 inoremap jf <Esc>
@@ -255,6 +260,34 @@ nnoremap <BS> "_dh
 
 " Keep the visual selection on yank
 vnoremap y ygv
+
+"""""" Shifting
+
+" Shift characters left and right
+" The `^[L` is used in place of <A-S-L>, which somehow didn't work.
+"
+" I use the "- (small delete) register so as not to clobber registers I care about.
+" In normal mode, it's just a single character,
+" so it's easy enough to cut a character and paste it, updating the cursor.
+nnoremap L "-dl"-p
+nnoremap H "-dh"-ph
+
+" Shift lines up and down.
+"
+" For single lines, things are also relatively easy.
+" TODO this binding has the issue of resetting your cursor position in the line.
+nnoremap J "-dd"-p
+nnoremap K "-ddk"-P
+" For multiple lines (visual mode), we need a bit of fancy:
+" - `:m` for the "move" command
+" - the move command takes an address, which is
+"   - `'>` the end of the selection
+"   - `+1` plus (down) one line
+" - `<CR>` done with the move
+" - `gv` to reselect previous visual
+" TODO use `gv=` to reindent, possibly
+vnoremap J :m '>+1<CR>gv
+vnoremap K :m '<-2<CR>gv
 
 """""""""""""""""""""""""""""""""""""""""""""
 """""" FIXME move into ~/.vim/plugins/*.vim
