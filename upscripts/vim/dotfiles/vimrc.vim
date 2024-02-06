@@ -192,6 +192,13 @@ highlight CursorLine cterm=NONE ctermbg=black
 """""" Keybindings
 """"""""""""""""""""
 
+"""""" leader key
+
+let mapleader = " "
+" without this, `<Space>` is a synonym for `l` that interferes with the leader
+" key
+nnoremap <Space> <Nop>
+
 """""" internal consistency
 
 " Y for yank-to-end; matching C (change-to-end) and D (delete-to-end)
@@ -207,6 +214,14 @@ nnoremap k gk
 inoremap jf <Esc>
 vnoremap jf <Esc>
 cnoremap jf <Esc>
+
+"""""" fast command mode
+
+" saves holding shift
+nnoremap ; :
+" go to next f/t/F/T character is still useful
+" I might have remapped it as `:`, but this way the shift just doesn't matter
+nnoremap ;; ;
 
 """""" new paragraphs
 
@@ -260,6 +275,25 @@ nnoremap <BS> "_dh
 
 " Keep the visual selection on yank
 vnoremap y ygv
+
+"""""" macro tweaks
+
+" The ADM-3A keyboard, for which `Vi` was initially developed had `@` just
+" left of semicolon — where apostrophe is today. That is _way_ more convenient
+" to type than `shift+2`.
+nnoremap <Leader>' @
+nnoremap <Leader>'' @@
+
+" At the same time, I often find myself accidentally starting a macro with
+" `q`, when I thought I was in sert mode or somthing, and then getting lost
+" when next I hit `:` or something. Sometimes, it even overwrites a macro I
+" cared about. Thus, I'm going to make `q` harder to accidentally type, while
+" also making the macro-record interface a bit more consistent with the
+" remapped macro-run from above.
+" I don't think this will really get in my way, since multi-cursor support
+" should obviate the need to record as many macros as is usual for vim.
+nnoremap q <Nop>
+nnoremap <Leader>q q
 
 """""" Shifting
 
