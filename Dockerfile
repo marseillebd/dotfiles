@@ -3,13 +3,20 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get install -y sudo
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+RUN apt-get install -y tzdata
+RUN apt-get install -y shared-mime-info
+
+
 # DEBUG
 RUN apt-get install -y \
   tree \
   less \
   wget curl \
   vim nano \
-  git
+  git \
+  gcc
 
 # Setup a userland user
 RUN useradd \

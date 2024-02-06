@@ -62,33 +62,32 @@ UPUP_ln() (
   echo "$profile" | while read -r req; do
     case "$req" in */*) continue ;; esac
     short="${req%%-*}"
+    echo >&2 "################## installing $short ##################"
+    if [ ! -d "upscripts/$short" ]; then
+      echo >&2 "unknown upscript: $short"
+      exit 1
+    fi
     (
-      echo >&2 "################## installing $short ##################"
-      if [ ! -d "upscripts/$short" ]; then
-        echo >&2 "unknown upscript: $short"
-        exit 1
-      fi
       cd "upscripts/$short"
-      (
-        echo >&2 '### install ###'
-        # shellcheck disable=SC1090
-        . "./$req.sh"
-      )
-      if [ -f "./config.sh" ]; then
-        (
-          echo >&2 '### configure ###'
-          # shellcheck disable=SC1091
-          . "./config.sh"
-        )
-      fi
-      echo >&2 "### setup ok: $short ###"
-      if [ -f "./activate.sh" ]; then
-        echo >&2 '### activate ###'
-        # shellcheck disable=SC1091
-        . "./activate.sh"
-      fi
-      echo >&2 "### OK: $short ###"
+      echo >&2 '### install ###'
+      # shellcheck disable=SC1090
+      . "./$req.sh"
     )
+    if [ -f "./config.sh" ]; then
+      (
+        cd "upscripts/$short"
+        echo >&2 '### configure ###'
+        # shellcheck disable=SC1091
+        . "./config.sh"
+      )
+    fi
+    echo >&2 "### setup ok: $short ###"
+    if [ -f "upscripts/$short/activate.sh" ]; then
+      echo >&2 '### activate ###'
+      # shellcheck disable=SC1091
+      . "upscripts/$short/activate.sh"
+    fi
+    echo >&2 "### OK: $short ###"
     if [ $? -gt 0 ]; then
       echo >&2 "################## setup FAILED: $short ##################"
       return 1

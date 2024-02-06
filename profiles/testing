@@ -9,4 +9,6 @@ git-sudo
 vim-sudo
 vimSurround
 vimAirline
+gcc-sudo
 rust-rustup
+nushell-cargo
