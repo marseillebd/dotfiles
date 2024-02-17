@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+if command -v nu; then exit; fi
+
 ## One of these asks for user input, and then everything grinds to a halt for some reason.
 ## Thus, when installing nushell, you need to install these via apt on debian/ubuntu.
 ## It seems to have something to do with tzdata, and so perhaps won't sho up outside of my docker test cases. If so:

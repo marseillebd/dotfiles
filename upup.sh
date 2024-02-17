@@ -73,7 +73,7 @@ UPUP_ln() (
       # shellcheck disable=SC1090
       . "./$req.sh"
     )
-    if [ -f "./config.sh" ]; then
+    if [ -f "upscripts/$short/config.sh" ]; then
       (
         cd "upscripts/$short"
         echo >&2 '### configure ###'
