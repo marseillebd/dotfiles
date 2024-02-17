@@ -80,7 +80,7 @@ It is based on the ubuntu distro I currently have on this computer.
 The root user installs some commands as dependencies; change these to be minimal so that you can see what your script actually needs.
 Once that edit is made, run it with the following, and try to use the upscript.
 ```
-upup.sh profiles/testing && docker build --tag tmp . && docker run --rm -it tmp
+docker build --tag tmp . && docker run --rm -it tmp
 ```
 
 ## The `upup` script

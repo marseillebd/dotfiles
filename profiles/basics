@@ -10,12 +10,3 @@ tree/shell
 fzf-source
 fzf/bash
 icdiff-sudo
-nano-sudo
-vim-sudo
-vimSurround
-vimAirline
-gcc-sudo
-rust-rustup
-nushell-cargo
-lolcat-sudo
-haskell-ghcup
