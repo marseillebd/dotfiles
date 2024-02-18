@@ -223,6 +223,9 @@ nnoremap ; :
 " I might have remapped it as `:`, but this way the shift just doesn't matter
 nnoremap ;; ;
 
+"""""" fast switch buffers
+nnoremap gb :ls<CR>:b
+
 """""" new paragraphs
 
 " with cursor between paragraphs, insert into paragraph between
@@ -322,19 +325,3 @@ nnoremap K "-ddk"-P
 " TODO use `gv=` to reindent, possibly
 vnoremap J :m '>+1<CR>gv
 vnoremap K :m '<-2<CR>gv
-
-"""""""""""""""""""""""""""""""""""""""""""""
-"""""" FIXME move into ~/.vim/plugins/*.vim
-"""""""""""""""""""""""""""""""""""""""""""""
-
-"""""" airline stuff
-
-" make the sections of the statusline use chevrons and nifty characters
-let g:airline_powerline_fonts = 1
-
-" something about tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
