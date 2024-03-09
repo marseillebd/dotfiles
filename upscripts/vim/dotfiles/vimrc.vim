@@ -45,6 +45,10 @@ set history=10000
 " saves much more undo information
 set undolevels=10000
 
+"""""" sessions
+
+set sessionoptions-=options
+
 """""" clipboard
 
 " Use system clipboard by default for yank, paste, delete.
@@ -224,7 +228,7 @@ nnoremap ; :
 nnoremap ;; ;
 
 """""" fast switch buffers
-nnoremap gb :ls<CR>:b
+nnoremap <leader>l :ls<CR>:b
 
 """""" new paragraphs
 
