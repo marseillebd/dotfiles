@@ -3,6 +3,9 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get install -y sudo
 
+# Installing tzdata is annoying, bn/c it expects human input.
+# The following SO answer has the magic incantation.
+# https://serverfault.com/a/1016972
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 RUN apt-get install -y tzdata
