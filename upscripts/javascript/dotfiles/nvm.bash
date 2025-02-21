@@ -7,4 +7,4 @@ fi
 # This loads the nvm function
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
 # And this activates the latest long-term release
-nvm use lts/*
+nvm use lts/* >/dev/null
