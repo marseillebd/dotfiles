@@ -1,6 +1,6 @@
 # shellcheck shell=sh
 
 # verbose ln gives more feedback
-alias ln='ls -v'
+alias ln='ln -v'
 
 # TODO an alias for relative symlinks

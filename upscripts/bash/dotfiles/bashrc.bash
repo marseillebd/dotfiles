@@ -14,6 +14,14 @@ case "$-" in
   *i*)
     confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
 
+    # Adjust path and path-like environment variables
+    # but only for bash-specific tooling
+    for rc in "${confdir}/bash/path/"*.bash; do
+      [ -f "$rc" ] || continue
+      # shellcheck disable=SC1090
+      . "$rc"
+    done
+
     # setup programmable completion
     # each program should put its completions in its own file
     if ! shopt -oq posix; then
