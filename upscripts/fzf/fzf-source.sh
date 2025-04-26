@@ -9,6 +9,13 @@ if command -v fzf; then exit; fi
   command -v wget || command -v curl
 } >/dev/null || echo >&2 'missing dependencies'
 
+cleanup() {
+  if [ -d "$UPUP_BUILDDIR/fzf" ]; then
+    rm -rf "$UPUP_BUILDDIR/fzf"
+  fi
+}
+trap "cleanup" EXIT
+
 ## Clone the github repository,
 ## then run the install script to get the precompiled binary.
 cd "$UPUP_BUILDDIR"
