@@ -187,8 +187,8 @@ let &t_SR = "\e[4 q"
 let &t_EI = "\e[2 q"
 
 " highlight the line where the cursor is
-" this helps me find the cursor when I've lost it (via jump, or just comping
-" back to editing after a little while
+" this helps me find the cursor when I've lost it (via jump, or just coming
+" back to editing after a little while)
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=black
 
@@ -292,7 +292,7 @@ nnoremap <Leader>' @
 nnoremap <Leader>'' @@
 
 " At the same time, I often find myself accidentally starting a macro with
-" `q`, when I thought I was in sert mode or somthing, and then getting lost
+" `q`, when I thought I was in insert mode or somthing, and then getting lost
 " when next I hit `:` or something. Sometimes, it even overwrites a macro I
 " cared about. Thus, I'm going to make `q` harder to accidentally type, while
 " also making the macro-record interface a bit more consistent with the
