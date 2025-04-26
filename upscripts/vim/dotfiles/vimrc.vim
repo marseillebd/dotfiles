@@ -242,6 +242,7 @@ nnoremap OO O<Esc>O<Esc>o
 
 " home key goes to first non-blank char, and then goes to first column
 nnoremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+inoremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 """""" copy, paste, cut, and delete
 
@@ -283,6 +284,12 @@ nnoremap <BS> "_dh
 " Keep the visual selection on yank
 vnoremap y ygv
 
+"""""" undo
+
+" this should allow for faster navigating of the (linear) undo levels
+" just like ctrl+z vs ctrl+shift+z in other editors
+nnoremap <s-u> <c-r>
+
 """""" macro tweaks
 
 " The ADM-3A keyboard, for which `Vi` was initially developed had `@` just
@@ -303,6 +310,8 @@ nnoremap q <Nop>
 nnoremap <Leader>q q
 
 """""" Shifting
+
+" TODO use vim-move plugin
 
 " Shift characters left and right
 " The `^[L` is used in place of <A-S-L>, which somehow didn't work.
