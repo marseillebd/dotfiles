@@ -19,6 +19,8 @@ silent! nmap <unique> s <Plug>(sandwich-add)
 silent! xmap <unique> s <Plug>(sandwich-add)
 silent! omap <unique> s <Plug>(sandwich-add)
 
+silent! nmap <unique> S s$
+
 " delete
 silent! nmap <unique> ds <Plug>(sandwich-delete)
 silent! xmap <unique> ds <Plug>(sandwich-delete)
