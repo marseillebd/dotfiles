@@ -12,6 +12,7 @@ fzf/bash
 icdiff-sudo
 nano-sudo
 vim-sudo
+vimCommentary
 vimFzf
 vimSurround
 vimAirline
