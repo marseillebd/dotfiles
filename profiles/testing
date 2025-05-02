@@ -16,6 +16,7 @@ vimCommentary
 vimFzf
 vimSurround
 vimAirline
+vimVindent
 gcc-sudo
 rust-rustup
 nushell-cargo
