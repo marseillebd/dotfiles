@@ -27,5 +27,5 @@ omap <silent> ii <Plug>(VindentObject_XX_ii)
 xmap <silent> ai <Plug>(VindentObject_XX_ai)
 omap <silent> ai <Plug>(VindentObject_XX_ai)
 " select current block + two extra lines at beginning and end.
-xmap <silent> aI <Plug>(VindentObject_XX_aI)
-omap <silent> aI <Plug>(VindentObject_XX_aI)
+xmap <silent> AI <Plug>(VindentObject_XX_aI)
+omap <silent> AI <Plug>(VindentObject_XX_aI)
