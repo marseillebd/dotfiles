@@ -43,10 +43,10 @@
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Shift&gt;&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
-      <property name="&lt;Super&gt;p" type="string" value="xfce-appfinder"/>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;l" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-taskmanager"/>
+      <property name="&lt;Super&gt;p" type="string" value="xfce4-appfinder"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
