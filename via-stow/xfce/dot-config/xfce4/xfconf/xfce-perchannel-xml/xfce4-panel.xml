@@ -15,11 +15,11 @@
         <value type="int" value="1"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
-        <value type="int" value="4"/>
-        <value type="int" value="5"/>
         <value type="int" value="6"/>
         <value type="int" value="11"/>
         <value type="int" value="7"/>
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
@@ -60,6 +60,9 @@
         <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (58%)"/>
         <value type="string" value="no network connection"/>
       </property>
+      <property name="known-items" type="array">
+        <value type="string" value="steam"/>
+      </property>
     </property>
     <property name="plugin-7" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -73,7 +76,23 @@
     <property name="plugin-9" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-10" type="string" value="actions"/>
+    <property name="plugin-10" type="string" value="actions">
+      <property name="button-title" type="uint" value="1"/>
+      <property name="items" type="array">
+        <value type="string" value="+lock-screen"/>
+        <value type="string" value="+switch-user"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="+suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+shutdown"/>
+        <value type="string" value="+restart"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+    </property>
     <property name="plugin-11" type="string" value="notification-plugin"/>
   </property>
 </channel>
