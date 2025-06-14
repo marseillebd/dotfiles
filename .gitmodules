@@ -1,0 +1,3 @@
+[submodule "via-stow/vim/dot-vim/pack/sandwich/start/vim-sandwich"]
+	path = via-stow/vim/dot-vim/pack/sandwich/start/vim-sandwich
+	url = https://github.com/machakann/vim-sandwich
