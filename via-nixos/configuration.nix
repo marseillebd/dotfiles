@@ -112,6 +112,8 @@
     librewolf
     steam
     discord
+    typst
+    xreader
   ];
 
   programs.steam = {
