@@ -95,7 +95,7 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -111,6 +111,7 @@
     obsidian
     librewolf
     steam
+    discord
   ];
 
   programs.steam = {
