@@ -12,3 +12,5 @@
     unstage = reset --
 [push]
     default = simple
+[icdiff]
+    options = --line-numbers

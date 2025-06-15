@@ -104,8 +104,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim-full
-    wget
+    wget curl
     git
+    icdiff
     stow
     tree
     obsidian
@@ -116,6 +117,7 @@
     xreader
     mask
     fzf
+    lolcat
   ];
 
   programs.steam = {

@@ -37,7 +37,10 @@ stow -v vim \
 
 ```sh
 cd via-stow
-stow -v git
+stow -v fzf \
+        git \
+        lolcat \
+        tree
 ```
 
 ## system
