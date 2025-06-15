@@ -1,0 +1,14 @@
+[user]
+    name = Marseille Bouchard Demko
+    email = marseillebd@proton.me
+[alias]
+    st = status
+    com = commit -a
+    amend = command -a --amend
+    co = checkout
+    hash = rev-parse HEAD
+    graph = log --graph --all --oneline --decorate
+    rollback = checkout --
+    unstage = reset --
+[push]
+    default = simple

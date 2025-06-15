@@ -33,6 +33,13 @@ stow -v vim \
         vim-vindent
 ```
 
+### user utils
+
+```sh
+cd via-stow
+stow -v git
+```
+
 ## system
 
 ### system switch
