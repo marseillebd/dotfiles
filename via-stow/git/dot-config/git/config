@@ -4,7 +4,7 @@
 [alias]
     st = status
     com = commit -a
-    amend = command -a --amend
+    amend = commit -a --amend
     co = checkout
     hash = rev-parse HEAD
     graph = log --graph --all --oneline --decorate

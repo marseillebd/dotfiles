@@ -118,6 +118,7 @@
     mask
     fzf
     lolcat
+    kitty
   ];
 
   programs.steam = {

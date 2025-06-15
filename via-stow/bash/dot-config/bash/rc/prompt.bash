@@ -5,7 +5,7 @@
 # Nevertheless, I am willing to change my mind if I do the appropriate research.
 # But as long as they aren't broken for me, I'll likely not fix them myself.
 case "${TERM}" in
-  xterm|xterm-color|*-256color)
+  xterm|xterm-color|*-256color|xterm-kitty)
     __prompt_reset="\e[0m"
     __prompt_shell="\e[90m" # gray
     __prompt_failcode="\e[31m" # red

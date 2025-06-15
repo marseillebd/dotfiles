@@ -43,6 +43,13 @@ stow -v fzf \
         tree
 ```
 
+### user rice
+
+```sh
+cd via-stow
+stow -v fonts
+```
+
 ## system
 
 ### system switch
