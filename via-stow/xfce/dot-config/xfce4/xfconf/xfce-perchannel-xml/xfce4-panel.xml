@@ -28,10 +28,10 @@
       <property name="nrows" type="uint" value="1"/>
       <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
-        <value type="double" value="0.75"/>
-        <value type="double" value="0.25"/>
-        <value type="double" value="0.25"/>
         <value type="double" value="0"/>
+        <value type="double" value="0"/>
+        <value type="double" value="0"/>
+        <value type="double" value="0.67905405405405406"/>
       </property>
     </property>
   </property>
