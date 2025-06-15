@@ -103,22 +103,30 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim-full
-    wget curl
-    git
-    icdiff
+    # env
     stow
-    tree
-    obsidian
-    librewolf
-    steam
-    discord
-    typst
-    xreader
     mask
+    # utils
+    git wget curl
+    tree
+    icdiff
     fzf
+    unzip
+    # terminal
     lolcat
     kitty
+    # editors
+    vim-full
+    # gui
+    obsidian
+    librewolf
+    # games
+    steam
+    discord
+    # writing
+    typst
+    xreader
+    # languages
   ];
 
   programs.steam = {
