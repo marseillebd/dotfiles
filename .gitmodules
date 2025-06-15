@@ -1,3 +1,18 @@
 [submodule "via-stow/vim/dot-vim/pack/sandwich/start/vim-sandwich"]
-	path = via-stow/vim/dot-vim/pack/sandwich/start/vim-sandwich
+	path = via-stow/vim-sandwich/dot-vim/pack/sandwich/start/vim-sandwich
 	url = https://github.com/machakann/vim-sandwich
+[submodule "via-stow/vim-vindent/pack/vindent/start/vindent.vim"]
+	path = via-stow/vim-vindent/dot-vim/pack/vindent/start/vindent.vim
+	url = https://github.com/jessekelighine/vindent.vim
+[submodule "via-stow/vim-commentary/dot-vim/pack/commentary/start/commentary/vim-commentary"]
+	path = via-stow/vim-commentary/dot-vim/pack/commentary/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "via-stow/vim-fzf/dot-vim/pack/fzf/start/fzf.vim/fzf.vim"]
+	path = via-stow/vim-fzf/dot-vim/pack/fzf/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".build/fzf"]
+	path = .build/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "via-stow/vim-lsp/dot-vim/pack/lsp/start/vim-lsp"]
+	path = via-stow/vim-lsp/dot-vim/pack/lsp/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp

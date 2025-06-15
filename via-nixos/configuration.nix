@@ -114,6 +114,8 @@
     discord
     typst
     xreader
+    mask
+    fzf
   ];
 
   programs.steam = {
