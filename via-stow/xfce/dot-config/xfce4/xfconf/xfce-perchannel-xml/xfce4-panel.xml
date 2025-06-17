@@ -12,15 +12,18 @@
       <property name="icon-size" type="uint" value="16"/>
       <property name="size" type="uint" value="24"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="1"/>
+        <value type="int" value="17"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="6"/>
         <value type="int" value="11"/>
+        <value type="int" value="12"/>
         <value type="int" value="7"/>
         <value type="int" value="4"/>
         <value type="int" value="5"/>
         <value type="int" value="8"/>
+        <value type="int" value="14"/>
+        <value type="int" value="16"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
       </property>
@@ -36,7 +39,6 @@
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-1" type="string" value="applicationsmenu"/>
     <property name="plugin-2" type="string" value="tasklist">
       <property name="grouping" type="uint" value="1"/>
     </property>
@@ -53,6 +55,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="networkmanager applet"/>
         <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (71%)"/>
         <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (54%)"/>
         <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (56%)"/>
@@ -64,6 +67,7 @@
         <value type="string" value="no network connection"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="blueman"/>
         <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="steam"/>
       </property>
@@ -73,9 +77,10 @@
     </property>
     <property name="plugin-8" type="string" value="clock">
       <property name="mode" type="uint" value="2"/>
-      <property name="digital-layout" type="uint" value="0"/>
+      <property name="digital-layout" type="uint" value="3"/>
       <property name="digital-date-font" type="string" value="Sans 8"/>
       <property name="digital-time-format" type="string" value="%T"/>
+      <property name="digital-time-font" type="string" value="CMU Typewriter Text Medium 12"/>
     </property>
     <property name="plugin-9" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -96,7 +101,28 @@
         <value type="string" value="+logout"/>
         <value type="string" value="-logout-dialog"/>
       </property>
+      <property name="appearance" type="uint" value="1"/>
     </property>
     <property name="plugin-11" type="string" value="notification-plugin"/>
+    <property name="plugin-12" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="play-sound" type="bool" value="true"/>
+      <property name="rec-indicator-persistent" type="bool" value="false"/>
+      <property name="known-players" type="string" value="librewolf"/>
+    </property>
+    <property name="plugin-14" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-16" type="string" value="clock">
+      <property name="digital-layout" type="uint" value="2"/>
+      <property name="digital-date-font" type="string" value="CMU Typewriter Text Medium 12"/>
+      <property name="tooltip-format" type="string" value="Week %V"/>
+      <property name="digital-date-format" type="string" value="%a, %d %b %Y"/>
+    </property>
+    <property name="plugin-17" type="string" value="systemload">
+      <property name="swap" type="empty">
+        <property name="enabled" type="bool" value="true"/>
+      </property>
+    </property>
   </property>
 </channel>

@@ -49,6 +49,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -66,10 +71,10 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  services.pulseaudio.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
-    enable = true;
+    enable = false;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -117,6 +122,10 @@
     kitty
     # editors
     vim-full
+    # xfce
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-systemload-plugin
+    blueman
     # gui
     obsidian
     librewolf
