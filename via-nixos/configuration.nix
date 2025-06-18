@@ -136,6 +136,7 @@
     typst
     xreader
     # languages
+    ghc haskellPackages.haskell-language-server haskellPackages.cabal-install
   ];
 
   programs.steam = {
