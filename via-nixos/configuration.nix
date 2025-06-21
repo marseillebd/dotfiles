@@ -135,8 +135,11 @@
     # writing
     typst
     xreader
+    typos
+    graphviz xdot
     # languages
-    ghc haskellPackages.haskell-language-server haskellPackages.cabal-install
+    haskell.compiler.ghc912 haskellPackages.haskell-language-server haskellPackages.cabal-install
+      haskellPackages.graphmod
   ];
 
   programs.steam = {
