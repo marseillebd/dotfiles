@@ -22,6 +22,7 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "lazarenko-nixos"; # Define your hostname.
+  networking.extraHosts = "45.79.220.165 tsybulenko";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
