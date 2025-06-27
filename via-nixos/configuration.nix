@@ -130,6 +130,7 @@
     # gui
     obsidian
     librewolf
+    vlc
     # games
     steam
     discord
