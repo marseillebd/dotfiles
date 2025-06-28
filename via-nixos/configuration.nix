@@ -130,7 +130,9 @@
     # gui
     obsidian
     librewolf
+    # media
     vlc
+    deluge
     # games
     steam
     discord
