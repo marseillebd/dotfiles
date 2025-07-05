@@ -110,6 +110,8 @@ Structure         -> Type
 Tag               -> Special
 Typedef           -> Type
 lCursor           -> Cursor
+LspHintVirtualText        -> LspInformationVirtualText
+LspInformationVirtualText -> LspInformationHighlight
 
 ; Each highlight group definition consists of the highlight
 ; group's name, the foreground color, the background color,
@@ -188,7 +190,7 @@ WildMenu             fg1               bg0
 
 Comment              fg0               none              italic
 Constant             violet            none
-Error                red               bg0               reverse
+Error                red               bg0
 Identifier           fg1               none
 Ignore               fg1               none
 PreProc              amber             none
@@ -200,5 +202,12 @@ Underlined           fg1               none
 CursorIM             none              fg
 ToolbarLine          none              bg0
 ToolbarButton        fg1               bg0               bold
+
+LspErrorHighlight        red               bg3
+LspWarningHighlight      none              bg3
+LspHintHighlight         none              bg3
+LspInformationHighlight  none              bg3
+LspWarningVirtualText    amber             bg3
+LspErrorVirtualText      red               bg3
 
 Include: _bw.colortemplate

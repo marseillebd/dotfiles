@@ -1,6 +1,8 @@
 """""" Enable floating window with diagnostic text
 let g:lsp_diagnostics_float_cursor = 1
 
+let g:lsp_diagnostics_virtual_text_enabled = 0
+
 " the hover seems to be broken unless the debouncing of writes to the swapfile
 " is short enough. By default, updatetime is 4000ms, so I guessed something
 " below the diagnostics float timeout (500ms).
