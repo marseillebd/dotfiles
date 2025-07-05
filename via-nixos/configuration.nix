@@ -142,7 +142,7 @@
     typos
     graphviz xdot
     # languages
-    haskell.compiler.ghc912 haskellPackages.haskell-language-server haskellPackages.cabal-install
+    haskell.compiler.ghc912 haskell.packages.ghc912.haskell-language-server haskellPackages.cabal-install
       haskellPackages.graphmod
   ];
 
