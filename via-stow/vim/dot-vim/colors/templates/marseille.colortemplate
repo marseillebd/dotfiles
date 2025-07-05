@@ -1,0 +1,204 @@
+; vim: ft=colortemplate fdm=marker et ts=2 sw=2 vsts=21,18,18,2
+
+; Mandatory metadata:
+Full name:     Marseille
+Short name:    marseille
+Author:        Marseille Bouchard Demko <marseillebd@proton.me>
+
+; Optional metadata:
+Maintainer:    Marseille Bouchard Demko <marseillebd@proton.me>
+URL:           https://github.com/marseillebd/dotfiles
+Description:   A simple dark colorscheme
+License:       MIT
+
+; The backend determines how the code is generated.
+; 'vim9' is the default: use 'vim' for legacy Vim script
+Options:       backend=vim9    ; Generate Vim9 script code
+Options:       palette=true    ; Append the color palette to the output as a comment
+Options:       dateformat="%c" ; Custom date format (strftime() syntax)
+
+; An optional prefix for the color scheme's settings. This is typically
+; used in the help file (see `_help.colortemplate`) and in discriminators
+; (see below). If not provided, it is set equal to the short name.
+; Prefix: drk
+
+; Variants tell Colortemplate for which environments to generate highlight
+; group definitions. The 'gui' variant is always enabled and doesn't have to be
+; specified (unless it's the only one to be supported).
+Environments:   gui 256 8 0
+
+; A template can import other templates:
+Include: _help.colortemplate
+
+; The background must be defined before any color or highlight group.
+Background: dark
+
+; Each color has an arbitrary name, a hex value (for GUI and
+; terminals supporting millions of colors), a base-256 value
+; (that is, a number between 16 and 255), and an optional
+; base-16 value (a number between 0 and 15 or, better, a
+; color name: see :help cterm-colors).
+; The base-256 value is inferred automatically by
+; Colortemplate when ~ is used.
+
+; Color name         GUI         Base256  Base16 (optional)
+Color: bg0           #0d0b0a     ~        Black
+Color: bg1           #151312     ~        Black
+Color: bg2           #1f1c1b     ~        DarkGray
+Color: bg3           #282625     ~        DarkGray
+Color: fg0           #8b8887     ~        LightGrey
+Color: fg1           #c0bdbb     ~        LightGrey
+Color: fg2           #d0cdcb     ~        White
+Color: fg3           #f1eeec     ~        White
+Color: red           #b3766d     ~        Red
+Color: amber         #a58251     ~        DarkYellow
+Color: grass         #839059     ~        LightGreen
+Color: green         #59987c     ~        DarkGreen
+Color: teal          #4896a2     ~        LightBlue
+Color: blue          #678bb7     ~        DarkBlue
+Color: violet        #8f7eb2     ~        DarkMagenta
+Color: pink          #ab7594     ~        LightMagenta
+
+Term colors: bg0 red  green amber blue violet teal fg0
+             bg2 pink grass amber teal pink   teal fg2
+
+; Linked groups do not depend on colors, so they may be
+; defined before defining colors:
+Added             -> diffAdded
+Changed           -> diffChanged
+Character         -> Constant
+Boolean           -> Constant
+Conditional       -> Statement
+CurSearch         -> IncSearch
+CursorLineFold    -> FoldColumn
+CursorLineSign    -> SignColumn
+Debug             -> Special
+debugPC           -> SignColumn
+debugBreakpoint   -> SignColumn
+Define            -> PreProc
+Delimiter         -> Special
+Exception         -> Statement
+Float             -> Constant
+Function          -> Identifier
+Include           -> PreProc
+Label             -> Statement
+LineNrAbove       -> LineNr
+LineNrBelow       -> LineNr
+Macro             -> PreProc
+MessageWindow     -> WarningMsg
+Number            -> Constant
+Operator          -> Statement
+PmenuKind         -> Pmenu
+PmenuKindSel      -> PmenuSel
+PmenuExtra        -> Pmenu
+PmenuExtraSel     -> PmenuSel
+PmenuMatch        -> Pmenu
+PmenuMatchSel     -> PmenuSel
+PopupNotification -> WarningMsg
+PopupSelected     -> PmenuSel
+PreCondit         -> PreProc
+QuickFixLine      -> Search
+Removed           -> diffRemoved
+Repeat            -> Statement
+SpecialChar       -> Special
+SpecialComment    -> Special
+StatusLineTerm    -> StatusLine
+StatusLineTermNC  -> StatusLineNC
+StorageClass      -> Type
+String            -> Constant
+Structure         -> Type
+Tag               -> Special
+Typedef           -> Type
+lCursor           -> Cursor
+
+; Each highlight group definition consists of the highlight
+; group's name, the foreground color, the background color,
+; and optional style attributes.
+; NOTE: the highlight group's name *must* be anchored at the
+; start of the line! Other than that, spaces do not count.
+Normal               fg1             bg0
+Terminal             fg1             bg0
+
+; The following is a 'discriminator'. It is defined using
+; Vim 9 script syntax and it is used to override some
+; highlight group definitions when the discriminator has
+; certain values.
+#const transp_bg = get(g:, '@prefix_transp_bg', 0)
+
+; For example, Normal and Terminal are white on black by
+; default (see above), but if there are 256 or 8 colors
+; *and* transp_bg is equal to 1 then Normal and Terminal are
+; defined as white on a transparent background:
+Normal
+  /gui/256/8+transp_bg 1 fg1             none
+Terminal
+  /256/8+transp_bg 1 fg1             none
+
+; Group              Foreground        Background        Attributes
+ColorColumn          fg                bg0
+Conceal              none              none
+Cursor               fg1               bg2
+CursorColumn         fg1               bg0
+CursorLine           none              bg1
+CursorLineNr         fg1               bg0
+DiffAdd              green             bg0               reverse
+DiffChange           amber             bg0               reverse
+DiffDelete           red               bg0               reverse
+DiffText             fg1               bg0               bold,reverse
+Directory            fg1               bg0
+EndOfBuffer          fg1               bg0
+ErrorMsg             fg1               bg0               reverse
+FoldColumn           fg1               bg0
+Folded               fg1               bg0               italic
+; Every highlight group must have a default definition. The
+; default definition may be overriden for specific variants
+; and/or discriminator values. Here, IncSearch has
+; a 'standout' attribute instead of a 'reverse' attribute in
+; gVim:
+IncSearch            grass             bg0               reverse
+IncSearch/gui        grass             bg0               standout
+LineNr               amber             bg0
+MatchParen           fg3               bg3
+ModeMsg              fg1               bg0
+MoreMsg              fg1               bg0
+NonText              fg1               bg0
+Pmenu                fg1               bg0
+PmenuSbar            fg1               bg0
+PmenuSel             fg1               bg0               reverse
+PmenuThumb           fg1               bg0
+Question             fg1               bg0
+Search               fg1               bg0
+SignColumn           fg1               bg0
+SpecialKey           fg1               bg0
+SpellBad             fg1               bg0               s=red
+SpellCap             fg1               bg0               s=amber
+SpellLocal           fg1               bg0               s=violet
+SpellRare            fg1               bg0               s=teal reverse
+StatusLine           fg1               bg1
+StatusLineNC         fg1               bg1
+TabLine              fg1               bg1
+TabLineFill          fg1               bg1
+TabLineSel           fg1               bg1
+Title                fg1               bg1
+VertSplit            fg0               bg1
+Visual               none              bg3
+VisualNOS            fg1               bg0
+WarningMsg           fg1               bg0
+WildMenu             fg1               bg0
+
+Comment              fg0               none              italic
+Constant             violet            none
+Error                red               bg0               reverse
+Identifier           fg1               none
+Ignore               fg1               none
+PreProc              amber             none
+Special              pink              none
+Statement            green             none
+Todo                 pink              none              reverse
+Type                 blue              none
+Underlined           fg1               none
+CursorIM             none              fg
+ToolbarLine          none              bg0
+ToolbarButton        fg1               bg0               bold
+
+Include: _bw.colortemplate

@@ -27,6 +27,7 @@ echo >&2 '[ATTENTION] check git diff, and commit if the changes look right'
 cd via-stow
 stow -v vim \
         vim-commentary \
+        vim-easyjump \
         vim-fzf \
         vim-lsp \
         vim-sandwich \

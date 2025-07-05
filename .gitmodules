@@ -16,3 +16,6 @@
 [submodule "via-stow/vim-lsp/dot-vim/pack/lsp/start/vim-lsp"]
 	path = via-stow/vim-lsp/dot-vim/pack/lsp/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "via-stow/vim-easyjump/dot-vim/pack/easyjump/start/easyjump.vim"]
+	path = via-stow/vim-easyjump/dot-vim/pack/easyjump/start/easyjump.vim
+	url = https://github.com/girishji/easyjump.vim

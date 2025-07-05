@@ -80,6 +80,8 @@ set backspace=indent,eol,start
 " I also doubt I'll ever be on a terminal with non-256-colors
 set t_Co=256
 
+:colorscheme marseille
+
 """""" filetype integration
 
 " Run commands specific to each filetype on open.
@@ -216,6 +218,7 @@ nnoremap k gk
 """""" fast escape
 
 inoremap jf <Esc>
+nnoremap jf <Esc>
 vnoremap jf <Esc>
 cnoremap jf <Esc>
 
@@ -294,9 +297,6 @@ noremap <Del> "_<Del>
 
 " The backspace key should work like the delete key in normal mode.
 nnoremap <BS> "_dh
-
-" Keep the visual selection on yank
-vnoremap y ygv
 
 """""" undo
 
