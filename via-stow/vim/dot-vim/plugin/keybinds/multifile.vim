@@ -1,6 +1,10 @@
 """""" fast switch buffers
 nnoremap <leader>l :ls<CR>:b
 
+" this magically stopped working unless I put it here instead of in the fzf
+" plugin's keybinds
+nnoremap <leader>l :Buffers!<CR>
+
 """""" fast panes
 
 " I often find myself doing various pane-oriented commands and disliking the

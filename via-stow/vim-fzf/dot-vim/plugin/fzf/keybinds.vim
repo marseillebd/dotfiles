@@ -14,4 +14,6 @@ imap <expr> <Tab> match(strpart(getline('.'), 0, max([0, col('.')-1])), '^\s*$')
 " necessarily restrict myself to just files that git knows about
 nnoremap <C-p> :GFiles!<CR>
 
+" one day, this just stopped working, unless I moved it to my main keybinds
+" which is annoying b/c this should really only run when I have then fzf plugin
 nnoremap <leader>l :Buffers!<CR>
