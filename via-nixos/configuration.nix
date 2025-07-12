@@ -143,6 +143,11 @@
     typos
     graphviz xdot
     # languages
+    ## C
+    gcc_multi
+    llvmPackages_20.libcxxClang
+      llvmPackages_20.clang-tools
+    ## Haskell
     haskell.compiler.ghc912 haskell.packages.ghc912.haskell-language-server haskellPackages.cabal-install
       haskellPackages.graphmod
   ];

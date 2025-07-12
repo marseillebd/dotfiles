@@ -32,7 +32,6 @@ stow -v vim \
         vim-lsp \
         vim-sandwich \
         vim-vindent \
-        haskell+vim
 ```
 
 ### user utils
