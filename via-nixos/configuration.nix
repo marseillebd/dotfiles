@@ -96,7 +96,8 @@
     description = "Marseille Bouchard Demko";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+      yt-dlp
+      audacity
     ];
   };
 
