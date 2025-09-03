@@ -10,6 +10,7 @@
     graph = log --graph --all --oneline --decorate
     rollback = checkout --
     unstage = reset --
+    updiff = log --branches --not --remotes --oneline
 [push]
     default = simple
 [icdiff]
