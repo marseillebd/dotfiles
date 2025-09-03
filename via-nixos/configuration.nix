@@ -131,6 +131,7 @@
     # gui
     obsidian
     librewolf
+      firefox ungoogled-chromium # backup
     # media
     vlc
     deluge
@@ -142,7 +143,8 @@
     xreader
     typos
     graphviz xdot
-    # languages
+    # programming
+    cloc
     ## C
     gcc_multi
     llvmPackages_20.libcxxClang
