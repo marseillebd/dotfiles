@@ -122,6 +122,8 @@
     # terminal
     lolcat
     kitty
+    bat
+    glow # cli markdown reader
     # editors
     vim-full
     # xfce
@@ -138,10 +140,12 @@
     # games
     steam
     discord
-    # writing
+    prismlauncher
+    # "productivity"
     typst
     xreader
     typos
+    libreoffice
     graphviz xdot
     # programming
     cloc
@@ -152,6 +156,8 @@
     ## Haskell
     haskell.compiler.ghc912 haskell.packages.ghc912.haskell-language-server haskellPackages.cabal-install
       haskellPackages.graphmod
+    ## Python
+    python314
   ];
 
   programs.steam = {
