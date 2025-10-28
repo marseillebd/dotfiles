@@ -17,6 +17,7 @@ stow -v profile \
 
 ```sh
 #!/bin sh
+cd via-stow
 stow -v --adopt xfce
 echo >&2 '[ATTENTION] check git diff, and commit if the changes look right'
 ```

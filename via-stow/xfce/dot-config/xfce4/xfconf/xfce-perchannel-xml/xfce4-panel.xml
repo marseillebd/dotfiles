@@ -55,6 +55,9 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="javaembeddedframe"/>
+        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (62%)"/>
+        <value type="string" value="deluge"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (71%)"/>
         <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (54%)"/>
@@ -67,6 +70,7 @@
         <value type="string" value="no network connection"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="vlc"/>
         <value type="string" value="blueman"/>
         <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="steam"/>
@@ -108,7 +112,7 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="play-sound" type="bool" value="true"/>
       <property name="rec-indicator-persistent" type="bool" value="false"/>
-      <property name="known-players" type="string" value="librewolf"/>
+      <property name="known-players" type="string" value="librewolf;vlc"/>
     </property>
     <property name="plugin-14" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
