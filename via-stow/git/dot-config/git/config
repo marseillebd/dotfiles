@@ -13,6 +13,8 @@
     updiff = log --branches --not --remotes --oneline
 [push]
     default = simple
+[pull]
+    rebase = false
 [icdiff]
     options = --line-numbers
 [init]
