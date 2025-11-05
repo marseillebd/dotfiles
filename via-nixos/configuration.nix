@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -54,6 +54,20 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
+
+  # Set numlock on at boot
+  # from https://discourse.nixos.org/t/how-to-enable-numlock-in-configuration-nix/24618/9
+  systemd.services.numLockOnTty = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      # /run/current-system/sw/bin/setleds -D +num < "$tty";
+      ExecStart = lib.mkForce (pkgs.writeShellScript "numLockOnTty" ''
+      for tty in /dev/tty{1..6}; do
+        ${pkgs.kbd}/bin/setleds -D +num < "$tty"
+      done
+      '');
+    };
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
