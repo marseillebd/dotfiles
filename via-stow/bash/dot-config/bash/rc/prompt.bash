@@ -10,6 +10,7 @@ case "${TERM}" in
     __prompt_shell="\e[90m" # gray
     __prompt_failcode="\e[31m" # red
     __prompt_chroot="\e[1;33m" # bold; yellow
+    __prompt_nix_shell="\e[1;33m" # bold; yellow
     __prompt_git="\e[33m" # yellow
     __prompt_userbox="\e[34m" # blue
     __prompt_pwd="\e[94m"
@@ -86,6 +87,8 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
   debian_chroot=$(cat /etc/debian_chroot)
 fi
 PS1+="\[$__prompt_chroot\]"'${debian_chroot:+(${debian_chroot})}'"\[$__prompt_reset\]"
+# nix development shell
+PS1+="\[$__prompt_nix_shell\]"'${IN_NIX_SHELL:+(nix:${IN_NIX_SHELL})}'"\[$__prompt_reset\]"
 # display current git branch
 if [ "$USER" != 'root' ]; then
   PS1+="\[$__prompt_git\]\$(__prompt_gitstatus)\[$__prompt_reset\]"
