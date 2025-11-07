@@ -138,6 +138,7 @@
     kitty
     bat
     glow # cli markdown reader
+    gh # github cli
     # editors
     vim-full
     # xfce
