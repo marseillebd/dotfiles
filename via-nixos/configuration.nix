@@ -16,6 +16,9 @@
     "flakes"
   ];
 
+  # enable running unpatched executables
+  programs.nix-ld.enable = true;
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdc";
@@ -69,17 +72,28 @@
     };
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
 
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+    # enable lightdm (should let me switch b/t different desktop environments on login)
+    displayManager.lightdm.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Enable the XFCE Desktop Environment.
+    desktopManager.xfce.enable = true;
+
+    # Enable xmonad
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = builtins.readFile ./xmonad.hs;
+    };
+
+    # Configure keymap in X11
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   # Enable CUPS to print documents.
@@ -164,6 +178,8 @@
     graphviz xdot
     # programming
     cloc
+    ## data formats
+    jq
     ## C
     gcc_multi
     llvmPackages_20.libcxxClang
