@@ -7,10 +7,12 @@
     amend = commit -a --amend
     co = checkout
     hash = rev-parse HEAD
-    graph = log --graph --all --oneline --decorate
+    graph = log --graph --exclude=issues --branches --oneline --decorate
     rollback = checkout --
-    unstage = reset --
+    undo = restore
+    unstage = restore --staged
     updiff = log --branches --not --remotes --oneline
+    iss = !git-issue
 [push]
     default = simple
 [pull]
@@ -18,4 +20,4 @@
 [icdiff]
     options = --line-numbers
 [init]
-	defaultBranch = main
+    defaultBranch = main
