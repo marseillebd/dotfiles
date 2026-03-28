@@ -149,12 +149,14 @@
     unzip
     # terminal
     lolcat
-    kitty
+    terminator
+    kitty # DELME, probs
     bat
     glow # cli markdown reader
     gh # github cli
     # editors
     vim-full
+    neovim
     # xfce
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-systemload-plugin
@@ -166,6 +168,7 @@
     # media
     vlc
     deluge
+    kdePackages.kdenlive
     # games
     steam
     discord
@@ -178,6 +181,7 @@
     graphviz xdot
     # programming
     cloc
+    docker
     ## data formats
     jq
     ## C
