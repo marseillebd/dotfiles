@@ -11,7 +11,9 @@
 
 # TODO I suppose if I wanted to get fancy, I could specify a dir where each file hols an editor and the editors it's preferred over.
 # Then, cat those files together, tsort, and take the last.
-if command -v vim >/dev/null 2>&1; then
+if command -v nvim >/dev/null 2>&1; then
+  export VISUAL=nvim
+elif command -v vim >/dev/null 2>&1; then
   export VISUAL=vim
 elif command -v vi >/dev/null 2>&1; then
   export VISUAL=vi

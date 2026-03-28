@@ -147,10 +147,10 @@
     icdiff
     fzf
     unzip
+    xclip
     # terminal
     lolcat
     terminator
-    kitty # DELME, probs
     bat
     glow # cli markdown reader
     gh # github cli
@@ -191,6 +191,11 @@
     ## Haskell
     haskell.compiler.ghc912 haskell.packages.ghc912.haskell-language-server haskellPackages.cabal-install
       haskellPackages.graphmod
+    ## Rust
+    rustc
+    cargo
+    ## Javascript
+    nodejs_24
     ## Python
     python314
   ];
