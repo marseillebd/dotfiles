@@ -1,0 +1,24 @@
+[global_config]
+  disable_mouse_paste = True
+[keybindings]
+[profiles]
+  [[default]]
+    audible_bell = True
+    background_darkness = 0.85
+    background_type = image
+    background_image = /home/marseillebd/.local/share/wallpapers/galaxy-wallpaper-21.jpg
+    font = Source Code Pro 12
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    use_system_font = False
+    bold_is_bright = True
+    title_transmit_bg_color = "#26a269"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
