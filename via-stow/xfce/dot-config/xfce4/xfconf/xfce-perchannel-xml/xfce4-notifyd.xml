@@ -6,6 +6,7 @@
     <property name="known_applications" type="array">
       <value type="string" value="blueman"/>
       <value type="string" value="discord"/>
+      <value type="string" value="LibreWolf"/>
       <value type="string" value="org.freedesktop.network-manager-applet"/>
       <value type="string" value="org.xfce.Thunar"/>
       <value type="string" value="org.xfce.xfdesktop"/>
