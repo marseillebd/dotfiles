@@ -169,6 +169,7 @@
     vlc
     deluge
     kdePackages.kdenlive
+    obs-studio
     # games
     steam
     discord

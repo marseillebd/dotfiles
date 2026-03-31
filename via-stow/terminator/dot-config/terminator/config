@@ -1,6 +1,7 @@
 [global_config]
   disable_mouse_paste = True
 [keybindings]
+  preferences = <Primary>less
 [profiles]
   [[default]]
     audible_bell = True
