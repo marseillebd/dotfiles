@@ -148,6 +148,7 @@
     mask
     # utils
     git wget curl
+    urlencode
     tree
     icdiff
     fzf
