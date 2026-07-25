@@ -19,6 +19,10 @@
   # enable running unpatched executables
   programs.nix-ld.enable = true;
 
+  # enable CUDA support in all programs (default disabled because unfree license)
+  # however, this turns it on for _everything_, which measn a lot of compilation
+  # nixpkgs.config.cudaSupport = true;
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdc";
@@ -130,7 +134,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       yt-dlp
-      audacity
     ];
   };
 
@@ -152,6 +155,8 @@
     tree
     icdiff
     fzf
+    ripgrep
+    fd
     unzip
     xclip
     zip
@@ -163,7 +168,9 @@
     gh # github cli
     # editors
     vim-full
-    neovim
+    # emulation
+    qemu
+    quickemu
     # xfce
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-systemload-plugin
@@ -175,8 +182,10 @@
     # media
     vlc
     deluge
-    kdePackages.kdenlive
+    ffmpeg
+    audacity
     obs-studio
+    kdePackages.kdenlive
     # games
     steam
     discord
