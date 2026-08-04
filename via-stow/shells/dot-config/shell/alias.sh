@@ -6,11 +6,27 @@
 mkcd() { mkdir "$1" && cd "$1"; }
 gitcd() { git clone "$1" && cd "${1##*/}"; }
 
-# say ysap do this to make going up directories really easy
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
+# FIXME this is not getting loaded in sh, nor is it parsing in sh
+# got from a youtube comment by Zeutomehr on yasp's video on improving cd
+..() {
+  local dir
+  local i
+  for i in $(seq 1 ${1:-1}); do
+    dir+="../"
+  done
+  cd "$dir"
+}
+# and I saw multiple dots somewhere as a shortcut
+alias ...='.. 2'
+alias ....='.. 3'
+
+# pushd is too long to bother with
+alias pd='pushd'
+# popd is ok, but is helped by the fact we've already pushed; still going to shorten it
+# `ud` for "Undo Directory"
+alias ud='popd'
+# display directory stack one-per-line and with a depth, for readability
+alias dirs='dirs -p -v'
 
 ###### ln ######
 
@@ -26,6 +42,7 @@ alias ls='ls --color=auto'
 
 alias l='ls -lFh'
 alias ll='ls -AlFh'
+alias la='ls -alFh'
 
 # TODO harvested from ubuntu's defaults
 alias grep='grep --color=auto'
