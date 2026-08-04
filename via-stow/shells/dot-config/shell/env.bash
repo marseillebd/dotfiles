@@ -1,10 +1,11 @@
-# shellcheck shell=sh
+# shellcheck shell=bash
 
 ####################
 ###### Prompt ######
 ####################
 
 # The prompt is a particularly nasty config, so it's in its own file
+# shellcheck source=prompt.bash
 . "$XDG_CONFIG_HOME/shell/prompt.bash"
 
 #####################
@@ -20,6 +21,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
+# shellcheck disable=2034
 HISTORYFILESIZE=2000
 
 #############################

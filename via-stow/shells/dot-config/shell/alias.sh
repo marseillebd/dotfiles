@@ -3,20 +3,19 @@
 ###### cd ######
 
 # make and enter directory is such a common operation
-mkcd() { mkdir "$1" && cd "$1"; }
-gitcd() { git clone "$1" && cd "${1##*/}"; }
+mkcd() { mkdir "$1" && cd "$1" || return 1; }
+gitcd() { git clone "$1" && cd "${1##*/}" || return 1; }
 
 # FIXME this is not getting loaded in sh, nor is it parsing in sh
 # got from a youtube comment by Zeutomehr on yasp's video on improving cd
-..() {
-  local dir
-  local i
-  for i in $(seq 1 ${1:-1}); do
-    dir+="../"
+__dotdot() {
+  for __dotdot_i in $(seq 1 "${1:-1}"); do
+    __dotdot_dir="$__dotdot_dir"../
   done
-  cd "$dir"
+  cd "$__dotdot_dir" || return 1
 }
 # and I saw multiple dots somewhere as a shortcut
+alias ..='__dotdot'
 alias ...='.. 2'
 alias ....='.. 3'
 

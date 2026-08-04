@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # set colors depending on terminal support
 # TODO someday, I'd like to set these more semantically, and translate them into the appropriate color code/color space
 # I'm going with hard-coded ANSI escape sequences.
@@ -13,17 +15,22 @@ if [ "$__prompt_color" = yes ]; then
 
     red='\[\e[0;31m\]'
     RED='\[\e[1;31m\]'
+    # shellcheck disable=SC2034
     green='\[\e[0;32m\]'
     GREEN='\[\e[1;32m\]'
     yellow='\[\e[0;33m\]'
     YELLOW='\[\e[1;33m\]'
+    # shellcheck disable=SC2034
     blue='\[\e[0;34m\]'
     BLUE='\[\e[1;34m\]'
     purple='\[\e[0;35m\]'
+    # shellcheck disable=SC2034
     PURPLE='\[\e[1;35m\]'
     cyan='\[\e[0;36m\]'
+    # shellcheck disable=SC2034
     CYAN='\[\e[1;36m\]'
     grey='\[\e[0;90m\]'
+    # shellcheck disable=SC2034
     GREY='\[\e[1;90m\]'
     nc='\[\e[0m\]'
 
@@ -66,7 +73,7 @@ fi
 
 # Print the previous commands exit code if non-zero
 __prompt_failcode() (
-  if [ $__prompt_ec != 0 ]; then
+  if [ "$__prompt_ec" != 0 ]; then
     echo "<$__prompt_ec>"
   fi
 )

@@ -14,13 +14,20 @@ export XDG_CACHE_HOME="$HOME/.cache"
 ##########################
 
 __binpathadd() {
-  local dir
-  dir="$1"
-  [ -d "$dir" ] || return
-  case ":$PATH:" in
-    *":$dir:"*) return ;; # directory is already on the path
+  case "$1" in
+    -f) __binpathadd_f=1; shift ;;
+    *)  __binpathadd_f=0        ;;
   esac
-  export PATH="${PATH:+$PATH:}$dir"
+  __binpathadd_dir="$1"
+  [ -d "$__binpathadd_dir" ] || return
+  case ":$PATH:" in
+    *":$__binpathadd_dir:"*) return ;; # directory is already on the path
+  esac
+  if [ "$__binpathadd_f" = 1 ]; then
+    export PATH="$__binpathadd_dir${PATH:+:$PATH}"
+  else
+    export PATH="${PATH:+$PATH:}$__binpathadd_dir"
+  fi
 }
 
 #######################
@@ -37,7 +44,7 @@ __binpathadd /usr/sbin
 # done
 
 # User-installed software
-__binpathadd "$HOME/.local/bin"
+__binpathadd -f "$HOME/.local/bin"
 
 # libraries
 # FIXME include the following:
