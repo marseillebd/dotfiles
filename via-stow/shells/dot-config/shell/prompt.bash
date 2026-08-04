@@ -30,12 +30,11 @@ if [ "$__prompt_color" = yes ]; then
     # shellcheck disable=SC2034
     CYAN='\[\e[1;36m\]'
     grey='\[\e[0;90m\]'
-    # shellcheck disable=SC2034
     GREY='\[\e[1;90m\]'
     nc='\[\e[0m\]'
 
     __prompt_reset="$nc"
-    __prompt_shell="$grey"
+    __prompt_shell="$GREY"
     __prompt_failcode="$red"
     __prompt_chroot="$YELLOW"
     __prompt_nix_shell="$YELLOW"
@@ -119,11 +118,6 @@ __prompt_gitstatus() (
   fi
 )
 
-# This function prints a newline at the end of a command expansion into the bash prompt.
-# A zero-width space is added after the newline to ensure the newline isn't consumed on the expansion.
-# I've factored it out because escaping inside bash is hard enough without also escaping inside the PS1.
-__prompt_newline() ( printf '\n\u200B' )
-
 ###############################
 ###### The Prompt Itself ######
 ###############################
@@ -167,9 +161,8 @@ PS1+="$__prompt_failcode\$(__prompt_failcode)$__prompt_reset"
 # output any running jobs
 PS1+="$__prompt_stoppedjob\$(jobs | awk '/Stopped/{print \"[\" \$3 \"]\"}')$__prompt_reset"
 PS1+="$__prompt_runningjob\$(jobs | awk '/Running/{print \"[\" \$3 \"]\"}')$__prompt_reset"
-PS1+='$(test -z "$(jobs)" || __prompt_newline)'
 # what shell is being run?
-# PS1+="$__prompt_shell[bash]$__prompt_reset"
+PS1+="$__prompt_shell[bash]$__prompt_reset"
 
 # dollar or hash for prompt
 if [ "$USER" = 'root' ]; then
