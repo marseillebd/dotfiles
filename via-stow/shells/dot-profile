@@ -10,20 +10,18 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# WARNING the path given here must agree with the config path given in xdg.sh
+# WARNING the path given here must agree with the config path given in path.sh
 confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Set up XDG base directories.
-if [ -f "$confdir/profile/xdg.sh" ]; then
+if [ -f "$confdir/profile/path.sh" ]; then
   # shellcheck disable=SC1090
-  . "$confdir/profile/xdg.sh"
+  . "$confdir/profile/path.sh"
 fi
 
-# Adjust path and path-like environment variables
-for rc in "${confdir}/profile/path"/*.sh; do
-  [ -f "$rc" ] || continue
-  # shellcheck disable=SC1090
-  . "$rc"
-done
-
 unset confdir
+
+# outside of paths, everything else is used for interactive shells, and so should go in:
+# - `$XDG_CONFIG_HOME/shell/` for shell-generic configuration (well, anything posix sh compatible)
+# - `$XDG_CONFIG_HOME/bash/` for bash-specific configuration
+# - and so on for other shells

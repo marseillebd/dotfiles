@@ -1,5 +1,9 @@
 # shellcheck shell=sh
 
+##########################
+###### Default Apps ######
+##########################
+
 # Drawn from https://bash.cyberciti.biz/guide/%24VISUAL_vs._%24EDITOR_variable_%E2%80%93_what_is_the_difference%3F
 # - The `EDITOR` "must work without advanced terminal functionality".
 #   That means `ed` or `ex`.
@@ -22,3 +26,37 @@ fi
 if [ -n "$VISUAL" ]; then
   export EDITOR="$VISUAL"
 fi
+
+##################
+###### less ######
+##################
+
+# make less more friendly for non-text input files, see lesspipe(1)
+if [ -x /usr/bin/lesspipe ]; then
+  eval "$(SHELL=/bin/sh lesspipe)"
+fi
+
+# Default parameter to send to the "less" command
+# -R: show ANSI colors correctly; -i: case insensitive search
+[ -z "$LESS" ] && export LESS="-R -i"
+
+#################
+###### gcc ######
+#################
+
+# TODO harvested from ubuntu's defaults
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+################
+###### ls ######
+################
+
+# TODO harvested from ubuntu's defaults
+if command -v dircolors >/dev/null ; then
+  if [ -r "${HOME}/.dircolors" ]; then
+    eval "$(dircolors -b "${HOME}/.dircolors")"
+  else
+    eval "$(dircolors -b)"
+  fi
+fi
+
