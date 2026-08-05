@@ -159,10 +159,10 @@ PS1+="\\n"
 PS1+="$__prompt_failcode\$(__prompt_failcode)$__prompt_reset"
 
 # output any running jobs
-PS1+="$__prompt_stoppedjob\$(jobs | awk '/Stopped/{print \"[\" \$3 \"]\"}')$__prompt_reset"
-PS1+="$__prompt_runningjob\$(jobs | awk '/Running/{print \"[\" \$3 \"]\"}')$__prompt_reset"
+PS1+="$__prompt_stoppedjob\$(jobs | awk '/Stopped/{print \"[\" \$3 \"]\"}' | tr -d $'\n')$__prompt_reset"
+PS1+="$__prompt_runningjob\$(jobs | awk '/Running/{print \"[\" \$3 \"]\"}' | tr -d $'\n')$__prompt_reset"
 # what shell is being run?
-PS1+="$__prompt_shell[bash]$__prompt_reset"
+PS1+="${__prompt_shell}[bash]$__prompt_reset"
 
 # dollar or hash for prompt
 if [ "$USER" = 'root' ]; then

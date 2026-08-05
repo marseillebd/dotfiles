@@ -1,6 +1,27 @@
-"""""""""""""""""""""""""
-"""""" general behavior
-"""""""""""""""""""""""""
+"""""""""""""""""""""
+"""""" Plugins """"""
+"""""""""""""""""""""
+
+call plug#begin()
+
+" LSP Support
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+" Autocomplete
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Verbs & Nouns
+Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-commentary'
+Plug 'jessekelighine/vindent.vim'
+
+call plug#end()
+
+""""""""""""""""""""""""""""""
+"""""" General Behavior """"""
+""""""""""""""""""""""""""""""
 
 " By default, vim starts in compatible mode.
 " I don't care about compatibility with an even older tool that I don't think I've ever actually used.
@@ -74,14 +95,6 @@ set mouse=a
 " and before where the insert started.
 set backspace=indent,eol,start
 
-"""""" color
-
-" this lets airline color its statusline correctly
-" I also doubt I'll ever be on a terminal with non-256-colors
-set t_Co=256
-
-:colorscheme marseille
-
 """""" filetype integration
 
 " Run commands specific to each filetype on open.
@@ -93,9 +106,20 @@ filetype plugin on
 
 " TODO
 
-"""""""""""""""""""""""""
-"""""" language support
-"""""""""""""""""""""""""
+""""""""""""""""""""""""""
+"""""" Autocomplete """"""
+""""""""""""""""""""""""""
+
+" I beleive this will put the auto-complete window near the text I'm
+" inserting.
+" However, I have not TODO tested on a version that supports popup windows.
+if v:version >= 802
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+endif
+
+""""""""""""""""""""""""""""""
+"""""" Language Support """"""
+""""""""""""""""""""""""""""""
 
 syntax on
 
@@ -120,9 +144,14 @@ set autoindent
 " smart indentation based on filetype
 filetype indent on
 
-""""""""""""""""""""
-"""""" decorations
-""""""""""""""""""""
+"""""" comments
+
+" cabal files
+autocmd FileType cabal setlocal commentstring=--\ %s
+
+""""""""""""""""""""""""
+"""""" Visibility """"""
+""""""""""""""""""""""""
 
 """""" line numbers
 
@@ -192,3 +221,11 @@ let &t_EI = "\e[2 q"
 " this helps me find the cursor when I've lost it (via jump, or just coming
 " back to editing after a little while)
 set cursorline
+
+"""""" color
+
+" this lets airline color its statusline correctly
+" I also doubt I'll ever be on a terminal with non-256-colors
+set t_Co=256
+
+:colorscheme marseille

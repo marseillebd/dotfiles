@@ -47,3 +47,8 @@ alias la='ls -alFh'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+###### vim ######
+
+alias v=vim
+alias vi=vim

@@ -1,5 +1,13 @@
 # shellcheck shell=sh
 
+#################################
+###### The Terminal Itself ######
+#################################
+
+# needed so that vim can use ^s and ^q, rather than them getting intercepted for stop/resume
+# after all, why would I need ^s when ^z would background it as well
+stty -ixon
+
 ##########################
 ###### Default Apps ######
 ##########################
@@ -59,4 +67,3 @@ if command -v dircolors >/dev/null ; then
     eval "$(dircolors -b)"
   fi
 fi
-
