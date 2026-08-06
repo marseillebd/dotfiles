@@ -48,6 +48,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias tree='tree -I ".git|dist-newstyle"'
+
 ###### vim ######
 
 alias v=vim
