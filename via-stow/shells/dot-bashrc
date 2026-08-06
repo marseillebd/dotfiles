@@ -15,25 +15,36 @@ case "$-" in
   *) return ;;
 esac
 
-###################################
-###### environment variables ######
-###################################
+# A helper function for loading the different "stages" of my rc files.
+__bashrc_stage() {
+  local stage="$1"
+  local f
+  if [ -f "$XDG_CONFIG_HOME/shell/${stage}.sh" ]; then
+    . "$XDG_CONFIG_HOME/shell/${stage}.sh"
+  fi
+  if [ -d "$XDG_CONFIG_HOME/shell/${stage}.d/" ]; then
+    for f in "$XDG_CONFIG_HOME/shell/${stage}.d/"*".sh"; do
+      [ -f "$f" ] && . "$f"
+    done
+  fi
+  if [ -f "$XDG_CONFIG_HOME/shell/${stage}.bash" ]; then
+    . "$XDG_CONFIG_HOME/shell/${stage}.bash"
+  fi
+  if [ -d "$XDG_CONFIG_HOME/shell/${stage}.d/" ]; then
+    for f in "$XDG_CONFIG_HOME/shell/${stage}.d/"*".bash"; do
+      [ -f "$f" ] && . "$f"
+    done
+  fi
+}
 
-. "$XDG_CONFIG_HOME/shell/env.sh"
-for __f in "$XDG_CONFIG_HOME/shell/env.d/"*".sh"; do
-  [ -f "$__f" ] && . "$__f"
-done
-. "$XDG_CONFIG_HOME/shell/env.bash"
-for __f in "$XDG_CONFIG_HOME/shell/env.d/"*".bash"; do
-  [ -f "$__f" ] && . "$__f"
-done
+########################
+###### run stages ######
+########################
 
-#########################
-###### completions ######
-#########################
+# basic environment variable settings, shell settings, and colors
+__bashrc_stage env
 
-# setup programmable completion
-# each program should put its completions in its own file
+# shell completions, first gloabl, then local
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
         # shellcheck disable=SC1091
@@ -49,30 +60,16 @@ if ! shopt -oq posix; then
     done
 fi
 
-. "$XDG_CONFIG_HOME/shell/completion.sh"
-for __f in "$XDG_CONFIG_HOME/shell/completion.d/"*".sh"; do
-  [ -f "$__f" ] && . "$__f"
-done
-. "$XDG_CONFIG_HOME/shell/completion.bash"
-for __f in "$XDG_CONFIG_HOME/shell/completion.d/"*".bash"; do
-  [ -f "$__f" ] && . "$__f"
-done
+__bashrc_stage completion
 
-#####################
-###### aliases ######
-#####################
-
-# set up aliases last so that they don't interfere with other setup actions
+# aliases last, so that they don't interfere with other setup actions
 # also sets up utility functions, and programs that integrate with the shell
 
-. "$XDG_CONFIG_HOME/shell/alias.sh"
-for __f in "$XDG_CONFIG_HOME/shell/alias.d/"*".sh"; do
-  [ -f "$__f" ] && . "$__f"
-done
-. "$XDG_CONFIG_HOME/shell/alias.bash"
-for __f in "$XDG_CONFIG_HOME/shell/alias.d/"*".bash"; do
-  [ -f "$__f" ] && . "$__f"
-done
+__bashrc_stage alias
+
+#########################
+###### End of File ######
+#########################
 
 # Installers keep wanting to add stuff directly to my version-controlled dotfiles.
 # They should all stop it!

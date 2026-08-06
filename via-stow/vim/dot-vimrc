@@ -229,3 +229,12 @@ set cursorline
 set t_Co=256
 
 :colorscheme marseille
+
+"""""""""""""""""""""""""
+"""""" Keybindings """"""
+"""""""""""""""""""""""""
+
+"""""" motions
+
+" "around file" selects the entire buffer
+onoremap af :<C-u>normal! ggVG<CR>

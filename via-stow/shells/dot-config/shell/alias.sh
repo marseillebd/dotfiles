@@ -52,3 +52,7 @@ alias egrep='egrep --color=auto'
 
 alias v=vim
 alias vi=vim
+
+###### docker ######
+
+alias docker='sudo docker'
