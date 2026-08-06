@@ -33,7 +33,7 @@ alias dirs='dirs -p -v'
 alias ln='ln -v'
 # TODO an alias for relative symlinks
 
-###### ls ######
+###### ls, tree ######
 
 # convenience aliases for ls
 alias ls='ls --color=auto'
@@ -49,6 +49,13 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias tree='tree -I ".git|dist-newstyle"'
+
+##### find, fd #####
+
+# if type fd >/dev/null 2>&1; then
+  # on debian, `fd` is already taken, but idk what it is, and I hate `find` vs I could use `fd` almost w/o reading the manual
+  alias fd='fdfind'
+# fi
 
 ###### vim ######
 

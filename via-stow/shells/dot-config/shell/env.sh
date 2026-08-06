@@ -35,6 +35,11 @@ if [ -n "$VISUAL" ]; then
   export EDITOR="$VISUAL"
 fi
 
+# sudo specified that the value of SUDO_EDITOR is searched before VISUAL or EDITOR
+if [ -n "$SUDO_EDITOR" ]; then
+  export SUDO_EDITOR="$VISUAL"
+fi
+
 ##################
 ###### less ######
 ##################

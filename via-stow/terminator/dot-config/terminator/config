@@ -5,7 +5,7 @@
 [profiles]
   [[default]]
     audible_bell = True
-    background_darkness = 0.9
+    background_darkness = 0.85
     background_type = image
     background_image = /home/mj/.local/share/wallpapers/amos-yan-shenzhen.jpg
     font = Source Code Pro 12
