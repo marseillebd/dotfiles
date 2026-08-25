@@ -4,131 +4,140 @@
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
     <value type="int" value="1"/>
-    <property name="dark-mode" type="bool" value="true"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="position" type="string" value="p=5;x=0;y=0"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
-      <property name="icon-size" type="uint" value="16"/>
-      <property name="size" type="uint" value="24"/>
+      <property name="size" type="uint" value="36"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="17"/>
+        <value type="int" value="9"/>
+        <value type="int" value="1"/>
         <value type="int" value="2"/>
-        <value type="int" value="3"/>
+        <value type="int" value="15"/>
+        <value type="int" value="5"/>
         <value type="int" value="6"/>
-        <value type="int" value="11"/>
-        <value type="int" value="12"/>
         <value type="int" value="7"/>
         <value type="int" value="4"/>
-        <value type="int" value="5"/>
-        <value type="int" value="8"/>
-        <value type="int" value="14"/>
-        <value type="int" value="16"/>
-        <value type="int" value="9"/>
-        <value type="int" value="10"/>
+        <value type="int" value="20"/>
       </property>
-      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="mode" type="int" value="2"/>
       <property name="nrows" type="uint" value="1"/>
-      <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
+        <value type="double" value="0.75"/>
+        <value type="double" value="0.25"/>
+        <value type="double" value="0.25"/>
         <value type="double" value="0"/>
-        <value type="double" value="0"/>
-        <value type="double" value="0"/>
-        <value type="double" value="0.67905405405405406"/>
       </property>
+      <property name="enable-struts" type="bool" value="true"/>
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-2" type="string" value="tasklist">
-      <property name="grouping" type="uint" value="1"/>
-    </property>
-    <property name="plugin-3" type="string" value="separator">
+    <property name="plugin-15" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-4" type="string" value="pager">
-      <property name="rows" type="uint" value="2"/>
-    </property>
-    <property name="plugin-5" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
+      <property name="rows" type="int" value="2"/>
+      <property name="miniature-view" type="bool" value="true"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
-      <property name="square-icons" type="bool" value="true"/>
-      <property name="known-legacy-items" type="array">
-        <value type="string" value="ethernet network connection “wired connection 1” active"/>
-        <value type="string" value="wi-fi network connection “hal9000” active: hal9000 (55%)"/>
-        <value type="string" value="javaembeddedframe"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (62%)"/>
-        <value type="string" value="deluge"/>
+      <property name="names-visible" type="array">
         <value type="string" value="networkmanager applet"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (71%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (54%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (56%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (61%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (59%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (63%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (60%)"/>
-        <value type="string" value="wi-fi network connection “att6akg6z3” active: att6akg6z3 (58%)"/>
-        <value type="string" value="no network connection"/>
+        <value type="string" value="volumeicon"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="blueman-applet"/>
+        <value type="string" value="apt-notifier.py"/>
+        <value type="string" value="clipman"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="fbxkb"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="names-hidden" type="array">
+      </property>
+      <property name="size-max" type="uint" value="24"/>
+      <property name="icon-size" type="int" value="0"/>
+      <property name="names-ordered" type="array">
+        <value type="string" value="apt-notifier.py"/>
+        <value type="string" value="yad"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="clipit"/>
+      </property>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="clipman"/>
       </property>
       <property name="known-items" type="array">
-        <value type="string" value="vlc"/>
-        <value type="string" value="blueman"/>
-        <value type="string" value="chrome_status_icon_1"/>
-        <value type="string" value="steam"/>
+        <value type="string" value="updater-mx"/>
+        <value type="string" value="mx-updater"/>
+        <value type="string" value="mx-usb-unmounter"/>
       </property>
     </property>
-    <property name="plugin-7" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
+    <property name="plugin-20" type="string" value="whiskermenu">
+      <property name="button-title" type="string" value="Applications Menu"/>
+      <property name="button-icon" type="string" value="/usr/share/icons/mxfcelogo-rounded.png"/>
+      <property name="launcher-icon-size" type="int" value="1"/>
+      <property name="hover-switch-category" type="bool" value="true"/>
+      <property name="favorites-in-recent" type="bool" value="true"/>
+      <property name="menu-width" type="int" value="470"/>
+      <property name="menu-height" type="int" value="550"/>
+      <property name="command-switchuser" type="string" value="xfce4-session-logout --switch-user"/>
+      <property name="show-command-switchuser" type="bool" value="true"/>
+      <property name="favorites" type="array">
+        <value type="string" value="xfce4-run.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="conky-toggle.desktop"/>
+        <value type="string" value="Quick_System_Info.desktop"/>
+        <value type="string" value="mx-tools.desktop"/>
+        <value type="string" value="mx-packageinstaller.desktop"/>
+        <value type="string" value="Help.desktop"/>
+        <value type="string" value="xfce4-terminal.desktop"/>
+        <value type="string" value="libreoffice-startcenter.desktop"/>
+        <value type="string" value="xfce4-taskmanager.desktop"/>
+      </property>
+      <property name="recent" type="array">
+        <value type="string" value="ddm-nvidia.desktop"/>
+        <value type="string" value="xfce-settings-manager.desktop"/>
+        <value type="string" value="mx-datetime.desktop"/>
+        <value type="string" value="mx-boot-options.desktop"/>
+        <value type="string" value="mx-tools.desktop"/>
+        <value type="string" value="mx-welcome.desktop"/>
+      </property>
     </property>
-    <property name="plugin-8" type="string" value="clock">
+    <property name="plugin-1" type="string" value="clock">
       <property name="mode" type="uint" value="2"/>
+      <property name="command" type="string" value="orage"/>
       <property name="digital-layout" type="uint" value="3"/>
-      <property name="digital-date-font" type="string" value="Sans 8"/>
-      <property name="digital-time-format" type="string" value="%T"/>
-      <property name="digital-time-font" type="string" value="CMU Typewriter Text Medium 12"/>
+      <property name="digital-time-format" type="string" value="%H:%M"/>
+      <property name="digital-time-font" type="string" value="Sans Bold 9"/>
     </property>
-    <property name="plugin-9" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
-    <property name="plugin-10" type="string" value="actions">
-      <property name="button-title" type="uint" value="1"/>
+    <property name="plugin-9" type="string" value="actions">
+      <property name="appearance" type="uint" value="0"/>
       <property name="items" type="array">
-        <value type="string" value="+lock-screen"/>
-        <value type="string" value="+switch-user"/>
-        <value type="string" value="+separator"/>
-        <value type="string" value="+suspend"/>
-        <value type="string" value="-hibernate"/>
-        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
         <value type="string" value="-separator"/>
-        <value type="string" value="+shutdown"/>
-        <value type="string" value="+restart"/>
-        <value type="string" value="+separator"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-shutdown"/>
+        <value type="string" value="-restart"/>
+        <value type="string" value="-separator"/>
         <value type="string" value="+logout"/>
         <value type="string" value="-logout-dialog"/>
       </property>
-      <property name="appearance" type="uint" value="1"/>
     </property>
-    <property name="plugin-11" type="string" value="notification-plugin"/>
-    <property name="plugin-12" type="string" value="pulseaudio">
+    <property name="plugin-2" type="string" value="docklike"/>
+    <property name="plugin-5" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="play-sound" type="bool" value="true"/>
-      <property name="rec-indicator-persistent" type="bool" value="false"/>
-      <property name="known-players" type="string" value="librewolf;vlc"/>
     </property>
-    <property name="plugin-14" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
-    <property name="plugin-16" type="string" value="clock">
-      <property name="digital-layout" type="uint" value="2"/>
-      <property name="digital-date-font" type="string" value="CMU Typewriter Text Medium 12"/>
-      <property name="tooltip-format" type="string" value="Week %V"/>
-      <property name="digital-date-format" type="string" value="%a, %d %b %Y"/>
-    </property>
-    <property name="plugin-17" type="string" value="systemload">
-      <property name="swap" type="empty">
-        <property name="enabled" type="bool" value="true"/>
-      </property>
+    <property name="plugin-7" type="string" value="power-manager-plugin"/>
+  </property>
+  <property name="clipman" type="empty">
+    <property name="tweaks" type="empty">
+      <property name="never-confirm-history-clear" type="bool" value="false"/>
     </property>
   </property>
 </channel>
