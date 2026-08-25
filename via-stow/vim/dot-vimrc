@@ -17,6 +17,9 @@ Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'jessekelighine/vindent.vim'
 
+" New Modes
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 call plug#end()
 
 """"""""""""""""""""""""""""""

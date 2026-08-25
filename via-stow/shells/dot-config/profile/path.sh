@@ -45,6 +45,7 @@ __binpathadd /usr/sbin
 
 # User-installed software
 __binpathadd -f "$HOME/.local/bin"
+__binpathadd -f "$HOME/.ghcup/bin" # haskell
 
 # libraries
 # FIXME include the following:
