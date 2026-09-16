@@ -8,11 +8,12 @@
 # But as long as they aren't broken for me, I'll likely not fix them myself.
 case "${TERM}" in
   xterm|xterm-color|*-256color|xterm-kitty)
-    __prompt_color=yes ;;
+    __ps_color=yes ;;
 esac
 
-if [ "$__prompt_color" = yes ]; then
+if [ "$__ps_color" = yes ]; then
 
+    # shellcheck disable=SC2034
     red='\[\e[0;31m\]'
     RED='\[\e[1;31m\]'
     # shellcheck disable=SC2034
@@ -20,11 +21,10 @@ if [ "$__prompt_color" = yes ]; then
     GREEN='\[\e[1;32m\]'
     yellow='\[\e[0;33m\]'
     YELLOW='\[\e[1;33m\]'
-    # shellcheck disable=SC2034
     blue='\[\e[0;34m\]'
+    # shellcheck disable=SC2034
     BLUE='\[\e[1;34m\]'
     purple='\[\e[0;35m\]'
-    # shellcheck disable=SC2034
     PURPLE='\[\e[1;35m\]'
     cyan='\[\e[0;36m\]'
     # shellcheck disable=SC2034
@@ -33,21 +33,23 @@ if [ "$__prompt_color" = yes ]; then
     GREY='\[\e[1;90m\]'
     nc='\[\e[0m\]'
 
-    __prompt_reset="$nc"
-    __prompt_shell="$GREY"
-    __prompt_failcode="$red"
-    __prompt_chroot="$YELLOW"
-    __prompt_nix_shell="$YELLOW"
-    __prompt_git="$yellow"
-    __prompt_box="$purple"
-    __prompt_user="$purple"
-    __prompt_pwd="$BLUE"
-    __prompt_runningjob="$grey"
-    __prompt_stoppedjob="$cyan"
+    __ps_reset="$nc"
+    __ps_shell="$GREY"
+    __ps_failcode="$RED"
+    __ps_chroot="$YELLOW"
+    __ps_nix_shell="$YELLOW"
+    __ps_git="$yellow"
+    __ps_box="$purple"
+    __ps_at="$PURPLE"
+    __ps_user="$purple"
+    __ps_colon="$PURPLE"
+    __ps_pwd="$blue"
+    __ps_runningjob="$grey"
+    __ps_stoppedjob="$cyan"
     if [ "$UID" = 0 ]; then
-      __prompt_sigil="$RED"
+      __ps_sigil="$RED"
     else
-      __prompt_sigil="$GREEN"
+      __ps_sigil="$GREEN"
     fi
 
     unset red
@@ -71,13 +73,13 @@ fi
 ########################################
 
 # Print the previous commands exit code if non-zero
-__prompt_failcode() (
-  if [ "$__prompt_ec" != 0 ]; then
-    echo "<$__prompt_ec>"
+__ps_failcode() (
+  if [ "$__ps_ec" != 0 ]; then
+    echo "<$__ps_ec>"
   fi
 )
 
-__prompt_gitstatus() (
+__ps_gitstatus() (
   # preserve last exitcode by running in a subshell
   # `return` isn't good enough, so I have to use `exit`
   # TODO could probably put more effort in to both do the thing and exit with the right code
@@ -114,7 +116,7 @@ __prompt_gitstatus() (
       # unstaged files reported as `*`
       if echo "$st" | grep -q '^ M'; then symbol+='*'; fi
 
-      echo "(${symbol}${branch})"
+      echo "(${symbol}${branch}) "
   fi
 )
 
@@ -122,14 +124,14 @@ __prompt_gitstatus() (
 ###### The Prompt Itself ######
 ###############################
 
-__prompt_command() {
+__ps_command() {
   # capture previous exit code
-  __prompt_ec=$?
+  __ps_ec=$?
 }
-PROMPT_COMMAND='__prompt_command'
+PROMPT_COMMAND='__ps_command'
 
 # always clear any color
-PS1="$__prompt_reset"
+PS1="$__ps_reset"
 
 # identify any special environments you might be in
 # so far: chroot, nix shell
@@ -137,44 +139,44 @@ PS1="$__prompt_reset"
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
   debian_chroot=$(cat /etc/debian_chroot)
 fi
-PS1+="$__prompt_chroot"'${debian_chroot:+(${debian_chroot})}'"$__prompt_reset"
+PS1+="$__ps_chroot"'${debian_chroot:+(${debian_chroot})}'"$__ps_reset"
 # nix development shell
-PS1+="$__prompt_nix_shell"'${IN_NIX_SHELL:+(nix:${IN_NIX_SHELL})}'"$__prompt_reset"
+PS1+="$__ps_nix_shell"'${IN_NIX_SHELL:+(nix:${IN_NIX_SHELL})}'"$__ps_reset"
 
 # display current git information
 if [ "$USER" != 'root' ]; then
-  PS1+="$__prompt_git\$(__prompt_gitstatus)$__prompt_reset"
+  PS1+="$__ps_git\$(__ps_gitstatus)$__ps_reset"
 fi
 
 # user, host, and working directory
 # PROMPT_DIRTRIM=3 # TODO I might reconsider this
-PS1+=" $__prompt_user\u$__prompt_reset"
-PS1+="@$__prompt_box\H$__prompt_reset"
-PS1+=":$__prompt_pwd\w$__prompt_reset"
+PS1+="$__ps_user\u$__ps_reset"
+PS1+="$__ps_at@$__ps_box\H$__ps_reset"
+PS1+="$__ps_colon:$__ps_pwd\w$__ps_reset"
 
 # I like mx linux's default prompt being split across two lines
 PS1+="\\n"
 
 # note the previous commands exit code, if unsuccessful
-PS1+="$__prompt_failcode\$(__prompt_failcode)$__prompt_reset"
+PS1+="$__ps_failcode\$(__ps_failcode)$__ps_reset"
 
 # output any running jobs
-PS1+="$__prompt_stoppedjob\$(jobs | awk '/Stopped/{print \"[\" \$3 \"]\"}' | tr -d $'\n')$__prompt_reset"
-PS1+="$__prompt_runningjob\$(jobs | awk '/Running/{print \"[\" \$3 \"]\"}' | tr -d $'\n')$__prompt_reset"
+PS1+="$__ps_stoppedjob\$(jobs | awk '/Stopped/{print \"[\" \$3 \"]\"}' | tr -d $'\n')$__ps_reset"
+PS1+="$__ps_runningjob\$(jobs | awk '/Running/{print \"[\" \$3 \"]\"}' | tr -d $'\n')$__ps_reset"
 # what shell is being run?
-PS1+="${__prompt_shell}[bash]$__prompt_reset"
+PS1+="${__ps_shell}[bash]$__ps_reset"
 
 # dollar or hash for prompt
 if [ "$USER" = 'root' ]; then
-  PS1+="$__prompt_sigil"\#"$__prompt_reset"
+  PS1+="$__ps_sigil"\#"$__ps_reset"
 else
-  PS1+="$__prompt_sigil"\$"$__prompt_reset"
+  PS1+="$__ps_sigil"\$"$__ps_reset"
 fi
 # lebensraum
 PS1+=" "
 
 
 # always clear any color
-PS2="$__prompt_reset"
+PS2="$__ps_reset"
 # a simple caret is enough
-PS2+="$__prompt_sigil>$__prompt_reset "
+PS2+="$__ps_sigil>$__ps_reset "
